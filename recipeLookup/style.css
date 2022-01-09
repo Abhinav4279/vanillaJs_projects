@@ -38,8 +38,9 @@ header {
 header input {
     background-color: #eee;
     border: none;
-    border-radius: 9%;
+    border-radius: 3px;
     padding: 0.5rem 1rem;
+    font-size: 0.9rem;
 }
 
 header button {
@@ -52,7 +53,9 @@ header button {
 
 .fav-container {
     background-color: #fbeefb;
-    padding: 1rem;
+    padding: 0.25rem 1rem;
+    font-family: inherit;
+    /* font-size: 1rem; */
     text-align: center;
 }
 
@@ -66,8 +69,24 @@ header button {
 }
 
 .fav-meals li {
+    position: relative;
     margin: 5px;
     width: 75px;
+}
+
+.fav-meals li .clear {
+    opacity: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 1.2rem;
+}
+
+.fav-meals li:hover .clear {
+    opacity: 100%;
 }
 
 .fav-meals li img {
@@ -81,5 +100,93 @@ header button {
 }
 
 .fav-meals li span {
+    display: inline-block;
     font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75px;
+}
+
+.meal {
+    box-shadow: 0 0 5px 1px #3333331A;
+    border-radius: 3px;
+    margin: 1.5rem;
+    overflow: hidden;
+}
+
+.meal-header {
+    position: relative;
+}
+
+.meal-header .random {
+    position: absolute;
+    top: 1rem;
+    background-color: #FFFFFF;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0 3px 3px 0;
+    color:rgb(92, 88, 92);
+}
+
+.meal-header img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.meal-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.meal-body h4 {
+    margin: 0;
+}
+
+.meal-body .fav-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color:rgb(165, 165, 165);
+    cursor: pointer;
+}
+
+.meal-body .fav-btn.active {
+    color: rebeccapurple;
+}
+
+.meal-info-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.meal-info {
+    background-color: #fff;
+    max-width: 600px;
+    border-radius: 5px;
+    padding: 0 2rem;
+    width: 100%;
+    position: relative;
+}
+
+.meal-info h1 {
+    text-align: center;
+}
+
+.meal-info .close-popup {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }

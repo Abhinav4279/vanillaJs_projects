@@ -12,41 +12,30 @@
 <body>
     <div class="mobile-container">
         <header>
-            <input type="text">
+            <input type="text" id="search-term">
             <button id="search">
                 <i class="fas fa-search"></i>
             </button>
         </header>
         <div class="fav-container">
             <h3>Favorite Meals</h3>
-            <ul class="fav-meals">
-                <li>
-                    <img src="https://www.themealdb.com/images/ingredients/Lime.png" alt="">
-                    <span>Lime</span>
-                </li>
-                <li>
-                    <img src="https://www.themealdb.com//images//media//meals//adxcbq1619787919.jpg" alt="">
-                    <span>Sandwich</span>
-                </li>
-                <li>
-                    <img src="https://www.themealdb.com//images//media//meals//020z181619788503.jpg" alt="">
-                    <span>Lasagna</span>
-                </li>
+            <ul class="fav-meals" id="fav-el">
             </ul>
         </div>
-        <div class="meals">
-            <div class="meal">
-                <span class="random">Random Recipe</span>
-                <div class="meal-header">
-                    <img src="https://www.themealdb.com//images//media//meals//lwsnkl1604181187.jpg" alt="">
-                </div>
-                <div class="meal-body">
-                    <h4>Starter Meal</h4>
-                    <button>
-                        <i class="far fa-heart"></i>
-                    </button>
-                </div>
-            </div>
+        <div class="meals" id="meals">
+        </div>
+    </div>
+    <div class="meal-info-container" id="meal-popup">
+        <div class="meal-info" id="meal-info">
+            <button id="close-popup" class="close-popup"><i class="fas fa-close"></i></button>
+            <h1>Meal title</h1>
+            <img src="https://www.themealdb.com//images//media//meals//ustsqw1468250014.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio maiores modi impedit odit, voluptate facilis placeat repellendus reprehenderit inventore adipisci incidunt amet dolorem aut, tenetur sequi voluptatibus, nam laudantium.20</p>
+            <ul>
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+            </ul>
         </div>
     </div>
 </body>
