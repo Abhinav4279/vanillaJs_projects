@@ -3,6 +3,11 @@ const favs = document.getElementById('fav-el');
 
 const searchBtn = document.getElementById('search');
 const searchTermEl = document.getElementById('search-term');
+
+const mealPopup = document.getElementById('meal-popup');
+const closePopupBtn = document.getElementById('close-popup');
+const mealInfoEl = document.getElementById('meal-info');
+
 getRandomMeal();
 fetchFavMeals();
 
@@ -39,7 +44,7 @@ function addMeal(mealData, random = false) {
     meal.innerHTML = `
             <div class="meal-header">
                 ${random? `<span class="random">Random Recipe</span>`: ''}
-                <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+                <img class="meal-btn" src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
             </div>
             <div class="meal-body">
                 <h4>${mealData.strMeal}</h4>
@@ -64,6 +69,40 @@ function addMeal(mealData, random = false) {
         fetchFavMeals();
     });
 
+    const mealBtn = meal.querySelector(".meal-btn");
+    mealBtn.addEventListener('click', () => {
+        showMealInfo(mealData);
+    });
+
+}
+
+function showMealInfo(mealData) {
+    mealInfoEl.innerHTML = '';
+    const mealEl = document.createElement('div');
+
+    const ings = [];
+    for(let i = 1; i <= 20; i++) {
+        if(mealData["strIngredient"+i]) {
+            ings.push(`${mealData["strIngredient"+i]} - ${mealData["strMeasure"+i]}`);
+        } else {
+            break;
+        }
+    }
+
+    mealEl.innerHTML = `
+        <h1>${mealData.strMeal}</h1>
+        <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+        <p>${mealData.strInstructions}</p>
+        <h3>Ingredients</h3>
+        <ul>
+            ${ings.map((ing) => 
+                `<li>${ing}</li>`).join('')}
+        </ul>
+    `
+
+    mealInfoEl.appendChild(mealEl);
+
+    mealPopup.classList.remove('hidden');
 }
 
 function addMealLS(mealId) {
@@ -101,7 +140,7 @@ function addFav(mealData) {
     const favMeal = document.createElement('li');
 
     favMeal.innerHTML = `
-        <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+        <img class="pic-btn" src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
         <span>${mealData.strMeal}</span>
         <button class="clear"><i class="fas fa-window-close"></i></button>
     `;
@@ -110,6 +149,11 @@ function addFav(mealData) {
     btn.addEventListener("click", () => {
         removeMealLS(mealData.idMeal);
         fetchFavMeals();
+    });
+    
+    const picBtn = favMeal.querySelector('.pic-btn');
+    picBtn.addEventListener('click', () => {
+        showMealInfo(mealData);
     });
 
     favs.appendChild(favMeal);
@@ -125,4 +169,8 @@ searchBtn.addEventListener('click', async () => {
             addMeal(meal);
         });
     }
+});
+
+closePopupBtn.addEventListener('click', () => {
+    mealPopup.classList.add('hidden');
 });
