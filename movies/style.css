@@ -10,6 +10,23 @@ body {
     margin: 0;
 }
 
+header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #373b69;
+    padding: 1rem;
+}
+
+header input {
+    background-color: #22254b;
+    font-family: inherit;
+    color: #eee;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
