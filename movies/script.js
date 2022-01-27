@@ -28,6 +28,10 @@ function showList(movies) {
                 <h3>${movieData.title}</h3>
                 <span>${movieData.vote_average}</span>
             </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                ${movieData.overview}
+            </div>
         `;
 
         mainEl.appendChild(movie);

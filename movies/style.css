@@ -34,6 +34,7 @@ main {
 }
 
 .movie {
+    position: relative;
     width: 300px;
     overflow: hidden;
     border-radius: 2px;
@@ -65,4 +66,25 @@ main {
     background-color: #22254b;
     border-radius: 2px;
     padding: 0.25rem 0.5rem;
+}
+
+.overview {
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+}
+
+.overview h3 {
+    margin-top: 0;
 }
