@@ -16,5 +16,43 @@ body {
 }
 
 canvas {
-    border: 1px solid #111;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.tool-box {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    width: 800px;
+    background-color: rgba(41, 13, 13, 0.89);
+    padding: 0.5rem;
+}
+
+.tool-box button {
+    border: none;
+    padding: 0.25rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.tool-box span {
+    color: #eee;
+    padding: 0.4rem;
+}
+
+.tool-box input {
+    border: none;
+    border-radius: 2px;
+    height: 28px;
+    width: 45px;
+    margin-left: 20px;
+}
+
+.tool-box > *:last-child {
+    margin-left: 20px;
 }
